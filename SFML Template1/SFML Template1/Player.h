@@ -20,5 +20,5 @@ public:
 	Player(sf::Texture texture);
 
 	void animatePlayer(int startFrame, int finishFrame, float interval);
-	
+	void playerReset();
 };

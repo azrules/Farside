@@ -12,9 +12,10 @@ public:
 	sf::Sprite yellowPowerUp[100];
 	sf::Sprite bluePowerUp[100];
 	sf::Texture powerupTexture[3];
-	sf::Clock powerupClock;
+	sf::Clock powerupClock[300];
 	sf::IntRect powerupRect[12];
 	bool powerupOff[100];
+	bool powerupOffr[100];
 	int count;
 	Powerup();
 	void powerupMake(int powerupNum, int powerup, int posX, int posY);

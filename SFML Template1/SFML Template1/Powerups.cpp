@@ -4,6 +4,7 @@
 #include <string>
 #include <SFML/Audio/Music.hpp>
 #include "Powerup.h"
+#include "Player.h"
 using namespace std;
 void makeRectPowa(sf::IntRect rect[], int frameCount, int x, int y)
 {
@@ -14,7 +15,7 @@ void makeRectPowa(sf::IntRect rect[], int frameCount, int x, int y)
 void Powerup::animatePowerup(int startFrame, int finishFrame, float interval,int powerupNo,int poweruptype){
 
 	float time;
-	time = powerupClock.getElapsedTime().asSeconds();
+	time = powerupClock[powerupNo].getElapsedTime().asSeconds();
 	
 	if (time > interval)
 	{
@@ -25,13 +26,14 @@ void Powerup::animatePowerup(int startFrame, int finishFrame, float interval,int
 		count++;
 		if (poweruptype == 0){
 			bluePowerUp[powerupNo].setTextureRect(powerupRect[count]);
-			cout << "WEED2.0";
+			//cout << "WEED2.0";
+			
 		}
 		if (poweruptype == 1)
 			redPowerUp[powerupNo].setTextureRect(powerupRect[count]);
 		if (poweruptype == 2)
 			yellowPowerUp[powerupNo].setTextureRect(powerupRect[count]);
-		powerupClock.restart();
+		powerupClock[powerupNo].restart();
 		if (count >= finishFrame)
 			count = startFrame;
 
@@ -59,7 +61,7 @@ Powerup::Powerup()
 void Powerup::powerupMake(int powerupNum, int powerup, int posX, int posY){
 	if (powerup == 0){
 
-		if (powerupOff[powerupNum] = false)
+		if (powerupOff[powerupNum] == false)
 		{
 			bluePowerUp[powerupNum].setOrigin(5, 5);
 			bluePowerUp[powerupNum].setScale(5, 5);
@@ -76,7 +78,7 @@ void Powerup::powerupMake(int powerupNum, int powerup, int posX, int posY){
 	{
 
 
-		if (powerupOff[powerupNum] = false)
+		if (powerupOffr[powerupNum] == false)
 		{
 			redPowerUp[powerupNum].setOrigin(5, 5);
 			redPowerUp[powerupNum].setScale(5, 5);
@@ -93,7 +95,7 @@ void Powerup::powerupMake(int powerupNum, int powerup, int posX, int posY){
 	{
 
 
-		if (powerupOff[powerupNum] = false)
+		if (powerupOff[powerupNum] == false)
 		{
 			redPowerUp[powerupNum].setOrigin(5, 5);
 			redPowerUp[powerupNum].setScale(5, 5);

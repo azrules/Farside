@@ -42,6 +42,18 @@ Player::Player()
 	player.setPosition(480, 270);
 	player.setTextureRect(playerRect[0]);
 }
+void Player::playerReset()
+{
+	makeRect(playerRect, 52, 18, 18);
+	playerHealth = 2;
+
+	playerTexture.loadFromFile("C:/Users/student/Desktop/Alexander Z/SomeStuff/SFML Template1/Debug/Assets/Textures/Player.png");
+	player.setTexture(playerTexture);
+	player.setOrigin(8.5, 8.5);
+	player.setScale(3, 3);
+	player.setPosition(480, 270);
+	player.setTextureRect(playerRect[0]);
+}
 Player::Player(int animation)
 {
 	
